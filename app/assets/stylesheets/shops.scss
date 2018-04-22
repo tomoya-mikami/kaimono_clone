@@ -1,0 +1,127 @@
+// Place all the styles related to the shops controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+
+body {
+    font-family: 'Noto Sans Japanese', sans-serif;
+}
+
+.block_parent {
+    position: relative;
+}
+
+.block_centaring {
+    width:100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+}
+
+.block_main {
+    background-color: #FFCC99;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    margin: auto;
+}
+
+.block_header {
+    top: 0;
+    background-color: #EA8A23;
+    width: 100%;
+    height: 85px;
+}
+
+.header_log_image_box {
+    height: 2rem;
+    text-align: center;
+}
+
+.header_search {
+    width: 19.74rem;
+    background-color: rgba(255,255,255,0.24);
+}
+
+.tmp_search_button {
+    width : 1.19rem;
+    height: 1.19rem;
+    background-color: rgb(255,255,255);
+    opacity: 0.0;
+}
+
+.form_input_search {
+    background-color: rgba(255,255,255,0.0);
+    border:none;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: left;
+    line-height: 14px;
+}
+
+.no_active_tab_button {
+    width: 11.71rem;
+    height: 3.5rem;
+    background-color: #FFFFFF;
+    font-size: 17px;
+    color: #EA8A23;
+    letter-spacing: 0;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 17px;
+}
+
+.active_tab_button {
+    width: 11.71rem;
+    height: 3.5rem;
+    background-color: #735E5B;
+    font-size: 17px;
+    color: rgba(255,255,255,0.50);
+    letter-spacing: 0;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 17px;
+}
+
+.block_height_100 {
+    height: 100%;
+}
+
+.block_main_list {
+    list-style: none;
+    margin-left: 0.8rem;
+    scroll-behavior: smooth;
+}
+
+.block_main_list_node {
+    width: 21.94rem;
+    height: 6.75rem;
+    background-color: #FFFFFF;
+}
+
+.block_list_shop_name {
+    font-family: NotoSansCJKjp-Regular;
+    font-size: 17px;
+    color: #EA8A23;
+    letter-spacing: 0;
+    text-align: left;
+    line-height: 17px;
+}
+
+.block_list_shop_info {
+    font-family: NotoSansCJKjp-Regular;
+    font-size: 15px;
+    color: #735E5B;
+    line-height: 15px;
+}
+
+.block_table {
+    display: inline-block;
+}

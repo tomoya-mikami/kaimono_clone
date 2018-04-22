@@ -1,0 +1,91 @@
+<script>
+  var tag_array = [];
+  var shop_array = [];
+  <% @tags.each do |tag|%>
+      tag_array.push(<%= tag.id %>);
+  <%end%>
+  <% @shops.each do |shop|%>
+      shop_array.push(<%= shop.id %>);
+  <%end%>
+  console.log(tag_array);
+</script>
+<%
+  def stock_convert(num)
+    if (num == 0) then
+      return "×"
+    elsif num > 3 then
+      return "○"
+    else
+      return num
+    end
+  end
+%>
+<div class="block_main"> 
+  <header class="block_header">
+      <div class="header_log_image_box">
+        <a href="/"><%= image_tag 'logo.png', :height => "80%" %></a>
+      </div>
+      <div class="header_search">
+          <form action="/tags" method="get">
+              <button type="submit" value="action" class="tmp_serach_button"><%= image_tag 'search.png', :size => "16x16"%></button>
+              <input type="text" name="query" placeholder="探したい食材で検索" class="form_input_search" value="<%=@search_query %>">
+          </form>
+      </div>
+  </header>
+  <% tag_size = @tags.length %>
+  <table name="search" class="searchTable">
+    <thead>
+      <tr>
+        <% if ! @tag_recipes.nil? then%>
+          <th class="search_box_C">レシピに必要な数</th>
+          <% @tag_recipes.each do |tag_recipe| %>
+            <th class="search_box_B"><%= tag_recipe.require %></th>
+          <% end %>
+        <% end %>
+      </tr>
+      <tr>
+        <th class="search_box_A">多い順</th>
+        <% @tags.each do |tag|%>
+          <th class="search_box_A"><%= tag.name %></th>
+        <%end%>
+      </tr>
+    </thead>
+    <tbody>
+  <% @shops.each do |shop| %>
+      <tr>
+        <td class="search_box_A"> <a href="/shops/1"><font class="link_font_table"><%= shop.name %></font></a></td>
+    <% @tags.each do |tag| %>
+        <%
+          stock = rand(1..5)
+        %>
+        <td class="search_box_B" id="<%= shop.id %>_<%= tag.id %>" data-stock="<%= stock %>" ><%= stock_convert(stock)%></td>
+    <% end %>
+      </tr>
+  <% end %>
+    </tbody>
+  </table>
+  <h1><%= @action %></h1>
+</div>
+<script>
+  function update_stock() {
+    var tag_id = tag_array[Math.floor(Math.random() * tag_array.length)];
+    var shop_id = shop_array[Math.floor(Math.random() * shop_array.length)];
+    var id = `${shop_id}_${tag_id}`;
+    console.log(id);
+    var td = document.getElementById(id);
+    stock = td.getAttribute('data-stock');
+    td.setAttribute('data-stock', stock - 1)
+    td.innerHTML = stock_convert(stock - 1);
+  }
+  function stock_convert (num) {
+    if (num <= 0) {
+      return "×";
+    } else if (num > 3) {
+      return "○";
+    } else {
+      return num;
+    }
+  }
+  setInterval("update_stock()", 1000);
+  setInterval("update_stock()", 500);
+</script>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tag Recipes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Recipe</th>
+      <th>Tag</th>
+      <th>Require</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tag_recipes.each do |tag_recipe| %>
+      <tr>
+        <td><%= tag_recipe.recipe_id %></td>
+        <td><%= tag_recipe.tag_id %></td>
+        <td><%= tag_recipe.require %></td>
+        <td><%= link_to 'Show', tag_recipe %></td>
+        <td><%= link_to 'Edit', edit_tag_recipe_path(tag_recipe) %></td>
+        <td><%= link_to 'Destroy', tag_recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tag Recipe', new_tag_recipe_path %>

@@ -1,0 +1,2 @@
+module TagRecipesHelper
+end

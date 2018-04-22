@@ -1,0 +1,24 @@
+<div class="block_main">
+  <header class="block_header">
+      <div class="header_search">
+          <form action="/tags" method="get">
+              <button type="submit" value="action" class="tmp_serach_button">a</button>
+              <input name="query" type="text" placeholder="探したい食材で検索" class="form_input_search">
+          </form>
+      </div>
+  </header>
+  <div id="content_field" class="block_main_list">
+      <% @shops.each do |shop| %>
+      <div class="block_main_list_node">
+          <table class="block_table">
+              <tr>
+                <td rowspan="3"><%= image_tag 'img_sample.jpg' %></td>
+                <td class="block_list_shop_name"><%= shop.name %></td>
+              </tr>
+              <tr><td class="block_list_shop_info"><%= shop.adress %></td></tr>
+              <tr><td class="block_list_shop_info"><%= shop.business_hours %></td></tr>
+          </table>
+      </div>
+      <% end %>
+  </div>
+</div>

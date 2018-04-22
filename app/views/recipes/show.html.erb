@@ -1,0 +1,39 @@
+<div class="block_main">
+  <header class="block_header_no_search">
+    <div class="header_log_image_box_no_search">
+      <a href="/"><%= image_tag 'logo.png', :height => "80%" %></a>
+    </div>
+  </header>
+  <% flag = 2 %>
+  <div>
+    <table>
+      <tr><td><%= @recipe.name %></td></tr>
+      <tr><td><%= @recipe.description %></td></tr>
+      <tr><td>1人分</td></tr>
+      <% @tags.each do |tag| %>
+        <% @tag_recipes.each do |tag_recipe| %>
+          <% if tag_recipe.tag_id == tag.id then%>
+            <% if flag%2 == 1 then%>
+              <% flag+=1 %>
+              <tr class="tr_glee"><td><%= tag.name %> : <%= tag_recipe.require%></td></tr>
+            <% else %>
+              <tr class="tr_white"><td><%= tag.name %> : <%= tag_recipe.require%></td></tr>
+              <% flag+=1 %>
+            <% end %>
+            <% break %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+  <div>
+    <form action="/tags" method="get">
+      <input type="hidden" name="tag_action" value="tag_query">
+      <input type="hidden" name="recipe_id" value="<%= @recipe.id %>">
+      <button type="submit" name="action" value="tag_search">店舗の在庫を確認する</button>
+    </form>
+  </div>
+  <div>
+    <%= image_tag 'carry_recipe', :width => "100%" %>
+  </div>
+</div>

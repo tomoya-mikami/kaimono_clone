@@ -1,0 +1,30 @@
+<div class="block_main"> 
+    <div style="background-image:url('<%= asset_path "topimg.png" %>');height:25.94rem;background-size:contain; position:relative;">
+        <div class="top_form">
+            <form action="/tags" method="get">
+                <table>
+                    <tr>
+                        <td style="width:9rem"><input type="text" name="query" placeholder="エリア" class="top_form_input_search"></td>
+                        <td style="width:9rem"><input type="text" name="query" placeholder="食材" class="top_form_input_search"></td>
+                        <td><button type="submit" name="action" value="item_search" class="tmp_serach_button"><%= image_tag 'search.png', :size => "16x16"%></button></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <div>
+        <p class="recipe_text">おすすめのレシピ</p>
+        <table>
+            <tr>
+                <td>
+                    <a href="/recipes/1"><%= image_tag '1.png', :height => "40%" %></a>
+                    <figcaption>カレー</figcaption>
+                </td>
+                <td>
+                    <a href="/recipes/2"><%= image_tag '1.png', :height => "40%" %></a>
+                    <figcaption>肉じゃが</figcaption>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
